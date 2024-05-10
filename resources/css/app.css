@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dt-layout-table {
+    @apply w-full;
+}
+
+.dt-search {
+    padding-bottom: 30px;
+    padding-left: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+div#other-step {
+    display: flex;
+    align-items: center; 
+}
+  
+hr {
+    flex-grow: 1;
+    margin: 0 0; 
+}
+    
+.dash-line {
+    margin: 0; 
+}
