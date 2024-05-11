@@ -12,7 +12,16 @@ class ManajemenMenuController extends Controller
         $daftar_menu = Menu::all();
         return view('admin.pages.manajemen-menu',[
             'title' => 'Menu',
+            
+        ]);
+    }
+    
+    public function detailMenu($id){
+        dd($id);
+        $daftar_menu = Menu::all();
+        return view('admin.pages.manajemen-menu-detail', [
             'daftar_menu' => $daftar_menu
         ]);
     }
+
 }

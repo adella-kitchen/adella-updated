@@ -26,14 +26,9 @@
         @yield('content')
         {{-- @include('sweetalert::alert') --}}
     </div>
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable({
-                info: false,
-                paging: false,
-            });
-        });
-    </script>
+
+    <script src="/js/datatable.js"></script>
+    <script src="/js/karyawan/karyawan.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 

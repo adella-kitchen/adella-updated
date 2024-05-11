@@ -2,11 +2,9 @@
 
 @section('title', 'Manajemen Menu')
 @section('content')
-    <section id="manajemen-menu" class="content flex">
-        <div class="left-side w-[65%] h-full overflow-y-auto">
+    <section class="content">
+        <div class="left-side w-full h-full overflow-y-auto">
             <div class="flex gap-2 items-center w-full py-4 ps-3 sticky top-[-20px] bg-white z-10">
-                <button data-modal-target="input-varian" data-modal-toggle="input-varian"
-                    class="bg-red text-white px-4 py-2 rounded-md text-sm">+ Tambah</button>
                 <select id="small"
                     class="text-sm px-4 py-2 rounded-md text-gray-900 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
                     <option selected>Pilih Filter</option>
@@ -41,63 +39,19 @@
                     </button>
                 </form>
             </div>
-            <div id="kumpulan-card-menu" class="w-full h-full flex flex-col gap-4 bg-white py-2 px-2">
-                @if ($daftar_menu)
-                    @foreach ($daftar_menu as $menu)
-                        <div class="card bg-slate-100 w-full h-[50px] flex items-center px-[40px] text-black">
-                            <div class="flex-1">#1 Tambahan : {{ $menu->variant_name }}</div>
-                            <div class="flex gap-4">
-                                <span class="flex items-center">
-                                    <i class="ri-pencil-fill text-[20px] text-grey3"></i>
-                                    <p class="font-medium text-grey3">Edit</p>
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="ri-delete-bin-7-fill text-[20px] text-red "></i>
-                                    <p class="font-medium text-red">Delete</p>
-                                </span>
-                            </div>
+            <div id="kumpulan-card-menu" class="w-full h-full flex flex-wrap justify-center flex-start gap-4 ">
+                @for ($i = 0; $i < 17; $i++)
+                    <a href="/admin/manajemen-menu/{{ $i + 1 }}"
+                        class="card min-w-[180px] max-w-[200px] flex-1 border bg-white">
+                        <img src="/img/manajemen_menu/menu1.png" alt="">
+                        <div class="py-4 px-4 text-center flex flex-col gap-1">
+                            <p>Mie Ayam Udang</p>
+                            <p>Stok : 13</p>
+                            <p class="font-semibold text-[18px]">Rp 45.000</p>
                         </div>
-                    @endforeach
-                @else
-                    <div class="w-full flex justify-center items-center h-full">
-                        <p>Data kosong</p>
-                    </div>
-                @endif
-            </div>
-
-        </div>
-        <div class="right-side w-[35%] h-full bg-white border py-[80px] px-[10px]">
-            <div class="w-full border-b pb-4">
-                <button
-                    class="border-2 border-red px-4 py-3 rounded-md text-red font-medium text-[14px] hover:bg-red hover:text-white">
-                    + Varian Menu</button>
-            </div>
-            <div class="h-full flex flex-col justify-between">
-                <div>
-                    <h2 class="w-full py-4 text-center font-semibold text-black1">Daftar Opsi Varian</h2>
-                    <table id="menu-table" class="w-full text-[14px]">
-                        <tbody>
-                            @for ($i = 1; $i < 7; $i++)
-                                <tr class="flex w-full my-2">
-                                    <td class="p-4 w-[60%]">{{ '#' . $i }} Mie Pangsit Medium</td>
-                                    <td class="p-4 flex-1">100gr</td>
-                                    <td class="p-4 flex-1 flex gap-2">
-                                        <i class="ri-pencil-fill"></i>
-                                        <i class="ri-delete-bin-7-fill"></i>
-                                        {{-- <x-eos-edit class="w-6 bg-blue-800 text-white p-1 rounded-full" />
-                                        <x-gmdi-delete-r class="w-6 bg-red text-white p-1 rounded-full" /> --}}
-                                    </td>
-                                </tr>
-                            @endfor
-                        </tbody>
-                    </table>
-                </div>
-
-                <button class="w-full mb-4 px-8 py-3 rounded-md bg-red text-white font-medium text-[14px]">Tambahkan
-                    komposisi
-                    bahan</button>
+                    </a>
+                @endfor
             </div>
         </div>
-        {{-- @include('livewire.component.modal.manajemen-varian.input-varian') --}}
     </section>
 @endsection

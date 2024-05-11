@@ -24,8 +24,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/manajemen-bahan', [ManajemenBahanController::class, 'index']);
         // Route::get('/manajemen-bahan/{id}', ManajemenDetailBahan::class);
         Route::get('/manajemen-menu', [ManajemenMenuController::class, 'index']);
+        Route::get('/manajemen-menu/{id}', [ManajemenMenuController::class, 'detailMenu']);
         // Route::post('/manajemen-menu/tambahmenu', [MenuController::class, 'addMenu']);
-        // Route::get('/manajemen-menu/{id}', ManajemenDetailMenu::class);
         Route::get('/pesanan', [PesananController::class,'index']);
       
         // ---- route manajemen konten ----
