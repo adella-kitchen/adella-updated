@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Karyawan')
+@section('title', 'Dashboard')
 @section('content')
     <section class="content">
         @if (session('success'))
@@ -123,8 +123,8 @@
                 </tbody>
             </table>
         </div>
-        {{-- @include('livewire.component.modal.EditKaryawan')
-        @include('livewire.component.modal.TambahKaryawan')
-        @include('livewire.component.modal.validations.DeleteKaryawan') --}}
+        @include('admin.component.modal.karyawan.EditKaryawan')
+        @include('admin.component.modal.karyawan.TambahKaryawan')
+        @include('admin.component.modal.karyawan.validations.DeleteKaryawan')
     </section>
 @endsection

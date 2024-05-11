@@ -27,3 +27,7 @@ hr {
 .dash-line {
     margin: 0; 
 }
+
+.content {
+    @apply pt-[80px] ps-4
+}

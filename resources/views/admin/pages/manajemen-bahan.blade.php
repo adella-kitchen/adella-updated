@@ -1,9 +1,9 @@
-@extends('admin.layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Manajemen Bahan')
 @section('content')
     <section class="content">
-        <div class="left-side w-full h-full py-[80px] px-[20px] overflow-y-auto">
+        <div class="left-side w-full h-full overflow-y-auto">
             <div class="flex gap-2 items-center w-full py-4 ps-3 sticky top-[-20px] bg-white z-10">
                 <select id="small"
                     class="text-sm px-4 py-2 rounded-md text-gray-900 border border-gray-300 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">

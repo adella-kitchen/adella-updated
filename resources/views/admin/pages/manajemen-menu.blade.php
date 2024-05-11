@@ -1,9 +1,9 @@
-@extends('admin.layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Manajemen Menu')
 @section('content')
     <section id="manajemen-menu" class="content flex">
-        <div class="left-side w-[65%] h-full py-[80px] px-[20px] overflow-y-auto">
+        <div class="left-side w-[65%] h-full overflow-y-auto">
             <div class="flex gap-2 items-center w-full py-4 ps-3 sticky top-[-20px] bg-white z-10">
                 <button data-modal-target="input-varian" data-modal-toggle="input-varian"
                     class="bg-red text-white px-4 py-2 rounded-md text-sm">+ Tambah</button>

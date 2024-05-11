@@ -6,16 +6,38 @@ use App\Http\Controllers\admin\ManajemenBahanController;
 use App\Http\Controllers\admin\ManajemenKontenController;
 use App\Http\Controllers\admin\ManajemenMenuController;
 use App\Http\Controllers\admin\PesananController;
+use App\Http\Controllers\LoginController;
+use App\Http\Middleware\CheckAdminRole;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/manajemen-bahan', [ManajemenBahanController::class, 'index']);
-    Route::get('/manajemen-bahan/{id}', [ManajemenBahanController::class, 'index']);
-    Route::get('/manajemen-menu', [ManajemenMenuController::class, 'index']);
-    Route::post('/manajemen-menu/tambahmenu', [ManajemenMenuController::class, 'index']);
-    Route::get('/manajemen-menu/{id}', [ManajemenMenuController::class, 'index']);
-    Route::get('/pesanan', [PesananController::class, 'index']);
-    Route::get('/karyawan', [KaryawanController::class, 'index']);
-    Route::get('/manajemen-konten', [ManajemenKontenController::class, 'index']);
+Route::redirect('/', '/admin/dashboard');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/authenticate', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/add-user', [LoginController::class, 'addUser']);
+
+Route::middleware('auth')->group(function () {
+    Route::middleware(CheckAdminRole::class)->prefix('admin')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/manajemen-bahan', [ManajemenBahanController::class, 'index']);
+        // Route::get('/manajemen-bahan/{id}', ManajemenDetailBahan::class);
+        Route::get('/manajemen-menu', [ManajemenMenuController::class, 'index']);
+        // Route::post('/manajemen-menu/tambahmenu', [MenuController::class, 'addMenu']);
+        // Route::get('/manajemen-menu/{id}', ManajemenDetailMenu::class);
+        Route::get('/pesanan', [PesananController::class,'index']);
+      
+        // ---- route manajemen konten ----
+        Route::get('/manajemen-konten', [ManajemenKontenController::class, 'index']);
+      
+        // ---- route karyawan ----
+        Route::prefix('karyawan')->group(function () {
+            Route::get('/', [KaryawanController::class, 'index']);
+            Route::post('/add-karyawan', [KaryawanController::class, 'addKaryawan'])->name('addKaryawan');
+            Route::get('/edit-karyawan/{id}', [KaryawanController::class, 'editKaryawan']);
+            Route::delete('/delete-karyawan/{id}', [KaryawanController::class, 'deleteData'])->name('deleteData');
+            Route::post('/update-karyawan/{id}', [KaryawanController::class, 'updateKaryawan'])->name('updateKaryawan');
+        });
+    });
 });
