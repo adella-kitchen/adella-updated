@@ -29,5 +29,5 @@ hr {
 }
 
 .content {
-    @apply pt-[80px] ps-4
+    @apply pt-[80px] px-2
 }

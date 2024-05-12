@@ -2,7 +2,7 @@
 
 @section('title', 'Manajemen Detail Menu')
 @section('content')
-    <section id="manajemen-menu" class="content flex">
+    <section id="manajemen-menu" class="content flex h-[100dvh]">
         <div class="left-side w-[65%] h-full overflow-y-auto">
             <div class="flex gap-2 items-center w-full py-4 ps-3 sticky top-[-20px] bg-white z-10">
                 <button data-modal-target="input-varian" data-modal-toggle="input-varian"
@@ -45,7 +45,7 @@
                 @if ($daftar_menu)
                     @foreach ($daftar_menu as $menu)
                         <div class="card bg-slate-100 w-full h-[50px] flex items-center px-[40px] text-black">
-                            <div class="flex-1">#1 Tambahan : {{ $menu->variant_name }}</div>
+                            <div class="flex-1">Tambahan : {{ $menu->variant_name }}</div>
                             <div class="flex gap-4">
                                 <span class="flex items-center">
                                     <i class="ri-pencil-fill text-[20px] text-grey3"></i>
@@ -66,7 +66,7 @@
             </div>
 
         </div>
-        <div class="right-side w-[35%] h-full bg-white border py-[80px] px-[10px]">
+        <div class="right-side w-[35%] h-full bg-white border py-[10px] px-[10px]">
             <div class="w-full border-b pb-4">
                 <button
                     class="border-2 border-red px-4 py-3 rounded-md text-red font-medium text-[14px] hover:bg-red hover:text-white">
@@ -92,10 +92,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                <button class="w-full mb-4 px-8 py-3 rounded-md bg-red text-white font-medium text-[14px]">Tambahkan
-                    komposisi
-                    bahan</button>
             </div>
         </div>
         {{-- @include('livewire.component.modal.manajemen-varian.input-varian') --}}
