@@ -24,7 +24,7 @@
             @include('admin.component.navbar', ['title' => $title])
         </header>
         @yield('content')
-        {{-- @include('sweetalert::alert') --}}
+        @include('sweetalert::alert')
     </div>
 
     <script src="/js/datatable.js"></script>
