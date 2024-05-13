@@ -39,18 +39,18 @@
                     </button>
                 </form>
             </div>
-            <div id="kumpulan-card-menu" class="w-full h-full flex flex-wrap justify-center flex-start gap-4 ">
-                @for ($i = 0; $i < 17; $i++)
-                    <a href="/admin/manajemen-menu/{{ $i + 1 }}"
+            <div id="kumpulan-card-menu" class="w-full h-full flex flex-wrap justify-start flex-start gap-4 ">
+                @foreach ($daftar_menu as $menu)
+                    <a href="/admin/manajemen-menu/{{ $menu->id_menu }}"
                         class="card min-w-[180px] max-w-[200px] flex-1 border bg-white">
                         <img src="/img/manajemen_menu/menu1.png" alt="">
                         <div class="py-4 px-4 text-center flex flex-col gap-1">
-                            <p>Mie Ayam Udang</p>
+                            <p>{{ $menu->menu_name }}</p>
                             <p>Stok : 13</p>
-                            <p class="font-semibold text-[18px]">Rp 45.000</p>
+                            <p class="font-semibold text-[18px]">Rp {{ $menu->price_menu }}</p>
                         </div>
                     </a>
-                @endfor
+                @endforeach
             </div>
         </div>
     </section>

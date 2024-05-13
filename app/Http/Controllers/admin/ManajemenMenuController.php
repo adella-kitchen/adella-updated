@@ -13,7 +13,7 @@ class ManajemenMenuController extends Controller
         $daftar_menu = Menu::all();
         return view('admin.pages.manajemen-menu',[
             'title' => 'Menu',
-            
+            'daftar_menu' => $daftar_menu
         ]);
     }
     
@@ -25,6 +25,17 @@ class ManajemenMenuController extends Controller
             ->get();
         return view('admin.pages.manajemen-menu-detail', [
             'daftar_menu' => $daftar_menu
+        ]);
+    }
+
+    public function variantOptionShow($id){
+        $variant_option = DB::table('variant')
+            ->join('detail_variant', 'variant.id_variant', '=', 'detail_variant.id_variant')
+            ->select('variant.*', 'detail_variant.*')
+            ->where('variant.id_variant', $id)
+            ->get();
+        return view('admin.pages.manajemen-menu-detail', [
+            'variant_option' => $variant_option
         ]);
     }
 

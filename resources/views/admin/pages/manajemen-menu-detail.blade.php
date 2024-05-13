@@ -44,7 +44,7 @@
             <div id="kumpulan-card-menu" class="w-full h-full flex flex-col gap-4 bg-white py-2 px-2">
                 @if ($daftar_menu)
                     @foreach ($daftar_menu as $menu)
-                        <div class="card bg-slate-100 w-full h-[50px] flex items-center px-[40px] text-black">
+                        <div class="card-detail-menu bg-slate-100 w-full h-[50px] flex items-center px-[40px] text-black">
                             <div class="flex-1">Tambahan : {{ $menu->variant_name }}</div>
                             <div class="flex gap-4">
                                 <span class="flex items-center">
